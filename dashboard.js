@@ -3,9 +3,9 @@ const router = express.Router();
 
 router.get("/", (req, res) => {
   if (req.user) {
-    res.render("dashboard", { user: req.user });
+    res.send({ user: req.user });
   } else {
-    res.redirect("/");
+    res.sendStatus(401);
   }
 });
 
